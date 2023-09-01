@@ -2,7 +2,7 @@
 
 #include <memory>
 
-class MouseAdapater
+class MouseAdapter
 {
 public:
 	struct Position 
@@ -17,8 +17,10 @@ public:
 			return !(*this == Rhs);
 		}
 	};
+	virtual ~MouseAdapter() = default;
 	virtual Position GetPosition() = 0;
 	virtual void SetPosition(Position oPosition) = 0;
+	virtual bool HasKeyboardEvents() = 0;
 };
 
-std::unique_ptr<MouseAdapater> CreateMouseAdapater();
+std::unique_ptr<MouseAdapter> CreateMouseAdapater();

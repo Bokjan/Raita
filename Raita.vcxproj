@@ -24,7 +24,7 @@
     <ClCompile Include="Source\Logic\TickDispatcher.cpp" />
     <ClCompile Include="Source\MainEntry.cpp" />
     <ClCompile Include="Source\Platform\Windows\MainWindows.cpp" />
-    <ClCompile Include="Source\Platform\Windows\MouseAdapaterWindows.cpp" />
+    <ClCompile Include="Source\Platform\Windows\MouseAdapterWindows.cpp" />
     <ClCompile Include="Source\Platform\Windows\PlatformGlobalWindows.cpp" />
     <ClCompile Include="Source\ThirdParty\imgui\backends\imgui_impl_dx12.cpp" />
     <ClCompile Include="Source\ThirdParty\imgui\backends\imgui_impl_win32.cpp" />

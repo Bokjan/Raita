@@ -37,8 +37,15 @@ class MouseControllerImpl
 
 	void UpdateRecords(const std::chrono::nanoseconds tDelta)
 	{
+		bool bChanged = false;
+
+		// Mouse position
 		auto oCurrentPosition = pMouseAdapater->GetPosition();
-		if (oCurrentPosition != oLastPosition)
+		if (oCurrentPosition != oLastPosition) { bChanged = true; }
+		// Keyboard event
+		if (pMouseAdapater->HasKeyboardEvents()) { bChanged = true; }
+		
+		if (bChanged)
 		{
 			tLastChange = std::chrono::high_resolution_clock::now();
 			GuiStatic::g_bIsActivated = false;
@@ -56,9 +63,9 @@ class MouseControllerImpl
 	int MoveDirection = 1;
 	static constexpr int MoveStep = 20;
 	static constexpr std::chrono::seconds tDetectDuration = 5s;
-	MouseAdapater::Position oLastPosition;
+	MouseAdapter::Position oLastPosition;
 	std::chrono::steady_clock::time_point tLastChange;
-	std::unique_ptr<MouseAdapater> pMouseAdapater = nullptr;
+	std::unique_ptr<MouseAdapter> pMouseAdapater = nullptr;
 };
 
 MouseController::MouseController()

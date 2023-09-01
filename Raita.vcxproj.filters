@@ -25,7 +25,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Platform\Windows\MouseAdapaterWindows.cpp">
+    <ClCompile Include="Source\Platform\Windows\MouseAdapterWindows.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\Windows\PlatformGlobalWindows.cpp">
