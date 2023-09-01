@@ -20,6 +20,7 @@ private:
 namespace GuiStatic
 {
 	extern bool g_bIsActivated;
+	extern bool g_bEnableTimePeriodActivation;
 	extern std::chrono::nanoseconds g_tEnabledDurationLast;
 	extern std::chrono::nanoseconds g_tEnabledDurationTotal;
 }

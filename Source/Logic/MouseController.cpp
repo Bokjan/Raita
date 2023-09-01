@@ -5,6 +5,24 @@
 
 using namespace std::chrono_literals;
 
+struct TimePoint
+{
+	int iHour = 0;
+	int iMinute = 0;
+	int iSecond = 0;
+};
+
+struct TimePeriod
+{
+	TimePoint oBegin, oEnd;
+};
+
+constexpr TimePeriod g_arrValidPeriods[]
+{
+	{{9, 0, 0}, {12, 0, 0}},
+	{{14, 10, 0}, {18, 30, 0}}
+};
+
 class MouseControllerImpl
 {
 	friend class MouseController;
@@ -16,8 +34,13 @@ class MouseControllerImpl
 
 	void Tick(const std::chrono::nanoseconds tDelta)
 	{
-		UpdateRecords(tDelta);
 		const auto tNow = std::chrono::high_resolution_clock::now();
+		if (!ShouldDetectChange())
+		{
+			tLastChange = tNow;
+			return;
+		}
+		UpdateRecords(tDelta);
 		auto oPos = pMouseAdapater->GetPosition();
 		if (tNow - tLastChange > tDetectDuration)
 		{
@@ -60,9 +83,36 @@ class MouseControllerImpl
 		}
 	}
 
+	bool ShouldDetectChange() const
+	{
+		if (!GuiStatic::g_bEnableTimePeriodActivation)
+		{
+			return true;
+		}
+		const auto tNow = std::chrono::system_clock::now();
+		const auto tTime = std::chrono::system_clock::to_time_t(tNow);
+		tm stTm;
+		(void)localtime_s(&stTm, &tTime);
+		auto TimeToInteger = [](int iH, int iM, int iS) -> int
+			{
+				return iH * 10000 + iM * 100 + iS;
+			};
+		for (const auto& Pair : g_arrValidPeriods)
+		{
+			int iNow = TimeToInteger(stTm.tm_hour, stTm.tm_min, stTm.tm_sec);
+			int iBegin = TimeToInteger(Pair.oBegin.iHour, Pair.oBegin.iMinute, Pair.oBegin.iSecond);
+			int iEnd = TimeToInteger(Pair.oEnd.iHour, Pair.oEnd.iMinute, Pair.oEnd.iSecond);
+			if (iNow >= iBegin && iNow <= iEnd)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	int MoveDirection = 1;
 	static constexpr int MoveStep = 20;
-	static constexpr std::chrono::seconds tDetectDuration = 5s;
+	static constexpr std::chrono::seconds tDetectDuration = 10s;
 	MouseAdapter::Position oLastPosition;
 	std::chrono::steady_clock::time_point tLastChange;
 	std::unique_ptr<MouseAdapter> pMouseAdapater = nullptr;

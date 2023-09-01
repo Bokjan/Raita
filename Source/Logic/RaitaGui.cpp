@@ -5,6 +5,7 @@
 namespace GuiStatic
 {
     bool g_bIsActivated = false;
+    bool g_bEnableTimePeriodActivation = true;
     std::chrono::nanoseconds g_tEnabledDurationLast;
     std::chrono::nanoseconds g_tEnabledDurationTotal;
 }
@@ -80,7 +81,10 @@ class RaitaGuiImpl
                 duration_cast<milliseconds>(GuiStatic::g_tEnabledDurationLast).count() / 1000.0, 
                 duration_cast<milliseconds>(GuiStatic::g_tEnabledDurationTotal).count() / 1000.0);
             
-            // ImGui::NewLine();
+            ImGui::Checkbox("Auto Schedule", &GuiStatic::g_bEnableTimePeriodActivation);
+
+            ImGui::SameLine();
+
             if (ImGui::Button("Quit"))
             {
                 bRet = false;
