@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{a35deea2-3302-4198-af79-8bfcfc3da767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{6ae2c06c-1d50-4b43-bad6-aa61f672867b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{6a8b9818-174a-4973-b20d-05439efafbeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\imgui">
+      <UniqueIdentifier>{a52ebfaa-010d-474e-8ae5-18d6792d20fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\imgui\backends">
+      <UniqueIdentifier>{773b65d5-a5c5-4d95-bb91-648bd4d8a8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{22a218d6-50a6-41a9-8ae5-16babe7d9c64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Platform\Windows\MouseAdapaterWindows.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\Windows\PlatformGlobalWindows.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\Windows\MainWindows.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\imgui.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\imgui_draw.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\imgui_tables.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\imgui_widgets.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\backends\imgui_impl_win32.cpp">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ThirdParty\imgui\backends\imgui_impl_dx12.cpp">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\RaitaGui.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\TickDispatcher.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\MouseController.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MainEntry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Platform\Windows\PlatformGlobalWindows.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imconfig.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imgui.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imgui_internal.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imstb_rectpack.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imstb_textedit.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\imstb_truetype.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\backends\imgui_impl_win32.h">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ThirdParty\imgui\backends\imgui_impl_dx12.h">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\TickDispatcher.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Tickable.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\RaitaGui.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\MouseController.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Platform\MouseAdapter.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MainEntry.h" />
+  </ItemGroup>
+</Project>
