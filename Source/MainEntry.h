@@ -4,9 +4,10 @@
 
 int MainEntry(int argc, char* argv[]);
 
-class MainLogicAdapater
+class MainLogicAdapter
 {
 public:
+	virtual ~MainLogicAdapter() = default;
 	virtual bool ShouldStopProgram() = 0;
 	virtual void FrameStartHook();
 	virtual void FrameFinishHook();
@@ -16,4 +17,4 @@ public:
 	virtual void BackendRender() = 0;
 };
 
-std::unique_ptr<MainLogicAdapater> CreateMainLogicAdapter();
+std::unique_ptr<MainLogicAdapter> CreateMainLogicAdapter();

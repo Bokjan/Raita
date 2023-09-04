@@ -11,9 +11,9 @@
 
 using namespace std::chrono_literals;
 
-void MainLogicAdapater::FrameStartHook() { }
+void MainLogicAdapter::FrameStartHook() { }
 
-void MainLogicAdapater::FrameFinishHook() { }
+void MainLogicAdapter::FrameFinishHook() { }
 
 int MainEntry(int argc, char* argv[])
 {

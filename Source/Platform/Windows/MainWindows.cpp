@@ -371,7 +371,7 @@ static LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return ::DefWindowProcW(hWnd, msg, wParam, lParam);
 }
 
-class MainLogicAdapaterWindows final : public MainLogicAdapater
+class MainLogicAdapaterWindows final : public MainLogicAdapter
 {
 public:
     MainLogicAdapaterWindows()
@@ -500,7 +500,7 @@ private:
     HWND hWindow = nullptr;
 };
 
-std::unique_ptr<MainLogicAdapater> CreateMainLogicAdapter()
+std::unique_ptr<MainLogicAdapter> CreateMainLogicAdapter()
 {
     return std::make_unique<MainLogicAdapaterWindows>();
 }
